@@ -14,19 +14,11 @@ int main() {
 
 	int t;
 	cin >> t;
-	ll count = 0;
-	ll k, l;
-	for (int i=0 ; i<t/2 ; i++) {
-		cin >> k >> l;
-		if (l < k)
-			count += k-l;
-	}
-	ll u;
-	if (t % 2 != 0) {
-		cin >> u;
-	}
-	if (l > u)
-		count += l-u;
+	vector<ll> v(t);
+	for (ll &i:v)
+		cin >> i;
+
+
 
 	cout << count << endl;
 
