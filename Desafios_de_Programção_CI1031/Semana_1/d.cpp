@@ -18,7 +18,13 @@ int main() {
 	for (ll &i:v)
 		cin >> i;
 
-
+	ll count = 0;
+	for (int i=0 ; i<t-1 ; i++) {
+		if (v[i+1] < v[i]) {
+			count += v[i]-v[i+1];
+			v[i+1] = v[i];
+		}
+	}
 
 	cout << count << endl;
 
