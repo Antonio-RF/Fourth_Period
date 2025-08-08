@@ -14,31 +14,20 @@ void solution() {
 	string text;
 	cin >> text;
 
-	ll pont_inicio = 0;
-	ll pont_fim = n-1;
+	ll pont_ini = 0;
 
 	while(q--) {
 		int t, x;
 		cin >> t >> x;
 
-		if (t==2)
-			cout << text[abs(pont_inicio+x-n)] << endl;;
+		if (t==2) {
+			if (pont_ini+x > (n-1))
+				x = (pont_ini+x) % n;
+			cout << text[x] << endl;
+		}
 		if (t==1) {
-			ll k = x;
-			ll u = x;
-			if (pont_inicio-x < 0)
-				k = n - abs(pont_inicio-x);
-			else
-				k = pont_inicio-x;
-			pont_inicio = k;
-			if (pont_fim-x < 0) {
-				u = pont_fim-x;
-				pont_fim += x;
-			}
-			else {
-				u = pont_fim-x;
-				pont_fim -= x;
-			}
+			x = x % n;
+			pont_ini = n-x;
 		}
 	}
 }
