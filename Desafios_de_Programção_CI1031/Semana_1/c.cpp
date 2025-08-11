@@ -21,13 +21,12 @@ void solution() {
 		cin >> t >> x;
 
 		if (t==2) {
-			if (pont_ini+x > (n-1))
-				x = (pont_ini+x) % n;
-			cout << text[x] << endl;
+			ll resultado = (pont_ini + (x-1)) % n;
+			cout << text[resultado] << endl;
 		}
 		if (t==1) {
 			x = x % n;
-			pont_ini = n-x;
+			pont_ini = (pont_ini - x + n) % n;
 		}
 	}
 }
@@ -40,4 +39,3 @@ int main() {
 
 	return 0;
 }
-
