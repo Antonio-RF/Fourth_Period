@@ -7,52 +7,61 @@ typedef long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
+
 void solution() {
 	ll n;
 	cin >> n;
 
-	vector<pair<int, char>> v(n);
+	vector <pair<int, char>> v(n);
 	for (ll i=0 ; i<n ; i++) {
-		int k;
-		char u;
-		cin >> k >> u;
-		v[i].first = k;
-		v[i].second = u;
+		int a;
+		char d;
+		cin >> a >> d;
+		v[i].first = a;
+		v[i].second = d;
 	}
 
-	ll pont = 0;
+	stack <pair<int, int>> pilha;
 	bool deu = true;
-	bool pula = false;
-	for (int i=1 ; i<n ; i++) {
-		if (pula) {
-			pula = false;
-			continue;
-		}
 
-		//cout << "v[pont]= " << v[pont].second << endl;
-		//cout << "v[i]= " << v[i].second << endl;
-		if (v[pont].first == v[i].first) {
-			if (v[pont].second != v[i].second) {
-				pont = i+1;
-				pula = true;
-			}
-			else {
-				deu = false;
-				break;
-			}
-		}
-		else if (v[pont].first < v[i].first) {
-			deu = false;
-			break;
-		}
+	for (ll i=0 ; i<n ; i++) {
+		int h = v[i].first;
+		int d = v[i].second;
+		if (d == 'L')
+			pilha.push({h, i});
 		else {
-			if (i == n-1) {
+			bool achou = false;
+			stack <pair<int, int>> temp;
+			while (!pilha.empty()) {
+				auto [h2, idx2] = pilha.top();
+				if (h2 == h) {
+					int mx = 0;
+					for (ll k = idx2+1 ; k<i ; k++) {
+						if (v[k].first > mx)
+							mx = v[k].first;
+					}
+					if (mx < h) {
+						pilha.pop();
+						achou = true;
+						break;
+					}
+				}
+				temp.push(pilha.top());
+				pilha.pop();
+			}
+			while (!temp.empty()) {
+				pilha.push(temp.top());
+				temp.pop();
+			}
+			if (!achou) {
 				deu = false;
 				break;
 			}
-			continue;
 		}
 	}
+
+	if (!pilha.empty())
+		deu = false;
 
 	if (deu)
 		cout << "S" << endl;
