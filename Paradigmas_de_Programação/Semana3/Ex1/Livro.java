@@ -1,24 +1,18 @@
-public class Autor {
+public class Livro {
     private String titulo;
     private int anoPublicacao;
     private Autor autor;
 
 
-    // Construtor 1.
+    // Construtor 1:
     public Livro() {
-        this.titulo = "Sem título";
-        this.anoPublicacao = 0;
-        this.autor = new Autor();
     }
-
-    // Construtor 2.
+    // Construtor 2:
     public Livro(String titulo, int anoPublicacao) {
         this.titulo = titulo;
-        this.anoPublicacao = anoPublicacao;
-        this.autor = new Autor();
+        this.setAnopub(anoPublicacao);
     }
-
-    // Construtor 3.
+    // Construtor 3:
     public Livro(String titulo, int anoPublicacao, Autor autor) {
         this.titulo = titulo;
         this.anoPublicacao = anoPublicacao;
@@ -26,30 +20,30 @@ public class Autor {
     }
 
 
-    public String getAutor(){
-        return this.autor;
+    public Autor getAutor(){
+        return autor;
     }
     public int getAnoPublicacao() {
-        return this.anoPublicacao;
+        return anoPublicacao;
     }
     public String getTitulo() {
-        return this.titulo;
+        return titulo;
     }
 
-    public void setAutor(autor) {
+    public void setAutor(Autor autor) {
         if (this.autor != null)
             this.autor = autor;
     }
-    public void setAnopub(ano_pub) {
+    public void setAnopub(int ano_pub) {
         if (this.anoPublicacao > 0)
             this.anoPublicacao = anoPublicacao;
     }
-    public void settitulo(titulo) {
+    public void setTitulo(String titulo) {
         if (this.titulo != null)
             this.titulo = titulo;
     }
 
     public String toString() {
-        return String.format("O autor %s publicou seu livro %s em: %s: %s\n", this.autor, this.titulo, this.anoPublicacao);
+        return String.format("Livro: %s (%d) - %s", titulo, anoPublicacao, autor);    
     }
 }

@@ -3,18 +3,17 @@ public class Autor {
     private String nacionalidade;
 
     public Autor() {
-        this.nome = "Desconhecido";
-        this.nacionalidade = "Desconhecida";
     }
 
+    //Construtor 2:
     public Autor(String nome) {
         this.nome = nome;
-        this.nacionalidade = "Desconhecida";
     }
 
+    //Construtor 3:
     public Autor(String nome, String nacionalidade) {
-        this.nome = nome;
-        this.nacionalidade = nacionalidade;
+        this.setNome(nome);
+        this.setNacionalidade(nacionaldade);
     }
 
 
