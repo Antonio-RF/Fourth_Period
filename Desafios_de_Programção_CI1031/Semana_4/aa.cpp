@@ -12,20 +12,18 @@ ll n, h;
 vector<ll> a(MAXN);
 ll swaps = 0;
 
-void merge_sort(int l, int r, ll h) {
+void merge_sort(int l, int r) {
 	if (r - l == 1) { return; }
 	int mi = l + (r - l) / 2;
-	merge_sort(l, mi, h); merge_sort(mi, r, h);
-	vector<int> aux (r - l);
+	merge_sort(l, mi); merge_sort(mi, r);
+	vector<ll> aux (r - l);
 	int i = l, j = mi;
 	for (int k = 0; k < r - l; k++) {
 		if (i < mi && j < r) {
-			if (!(a[i] < a[j]) && (i+1>h)) {
-				cout << "h: " << h << endl;
-				cout << "i: " << i << endl;
-				cout << "elemento: " << a[i] << " trocado pelo: " << a[j] << endl;
-				swaps += mi - i; }
-			if (a[i] < a[j]) { aux[k] = a[i++]; }
+			if (!(a[i] < a[j])) {
+				swaps += mi - i;
+			}
+			if (a[i] < a[j]) { aux[k] = a[i++];}
 			else { aux[k] = a[j++]; }
 		}
 		else if (i < mi) { aux[k] = a[i++]; }
@@ -41,9 +39,10 @@ void solution() {
 	for (ll i=0 ; i<n ; i++)
 		cin >> a[i];
 
+	if (h > 1)
+		merge_sort(0, h);
 	swaps = 0;
-	merge_sort(0, n, h);
-	//swaps -= h;
+	merge_sort(0 , n);
 
 	cout << swaps << endl;
 
@@ -57,4 +56,3 @@ int main() {
 
 	return 0;
 }
-
