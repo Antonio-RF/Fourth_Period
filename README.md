@@ -6,7 +6,7 @@
 ## ​🗓️​ Datas: ​
 
 ### Software Básico (CI1064):
-- [ ] Prova 1: A definir.
+- [ ] Prova 1: 16/09/2025.
 - [ ] Prova 2: A definir.
 <div align="left">
 <h2>Nota final: --</h2>
@@ -25,10 +25,10 @@
 
 ### Desafios de Programção (CI1031):
 - [x] Semana 1: 07/08//2025.
-- [ ] Semana 2: 14/08/2025.
-- [ ] Semana 3: 21/08/2025.
-- [ ] Semana 4: 28/08/2025.
-- [ ] Semana 5: 04/09/2025.
+- [x] Semana 2: 14/08/2025.
+- [x] Semana 3: 21/08/2025.
+- [x] Semana 4: 28/08/2025.
+- [x] Semana 5: 04/09/2025.
 - [ ] Semana 6: 11/09/2025.
 - [ ] Semana 7: 19/09/2025.
 - [ ] Semana 8: 26/09/2025.
@@ -48,7 +48,7 @@
 
 ### Interação Humano-Computador (CI1350):
 - [x] Entrega 1: 12/08/2025.
-- [ ] Prova 1: 14/08/2025.
+- [x] Prova 1: 14/08/2025.
 - [ ] Entrega 2: 11/09/2025.
 - [ ] Prova 2: 29/10/2025.
 - [ ] Entrega 3: 04/11/2025.
