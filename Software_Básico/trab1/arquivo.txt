@@ -1,0 +1,175 @@
+
+hello:     formato de ficheiro elf64-x86-64
+
+
+Desmontagem da secção .note.gnu.property:
+
+0000000000400120 <.note.gnu.property>:
+  400120:	04 00                	add    $0x0,%al
+  400122:	00 00                	add    %al,(%rax)
+  400124:	10 00                	adc    %al,(%rax)
+  400126:	00 00                	add    %al,(%rax)
+  400128:	05 00 00 00 47       	add    $0x47000000,%eax
+  40012d:	4e 55                	rex.WRX push %rbp
+  40012f:	00 01                	add    %al,(%rcx)
+  400131:	00 00                	add    %al,(%rax)
+  400133:	c0 04 00 00          	rolb   $0x0,(%rax,%rax,1)
+  400137:	00 01                	add    %al,(%rcx)
+  400139:	00 00                	add    %al,(%rax)
+  40013b:	00 00                	add    %al,(%rax)
+  40013d:	00 00                	add    %al,(%rax)
+	...
+
+Desmontagem da secção .text:
+
+0000000000401000 <_start>:
+  401000:	b8 01 00 00 00       	mov    $0x1,%eax
+  401005:	bf 01 00 00 00       	mov    $0x1,%edi
+  40100a:	48 be 00 20 40 00 00 	movabs $0x402000,%rsi
+  401011:	00 00 00 
+  401014:	ba 19 00 00 00       	mov    $0x19,%edx
+  401019:	0f 05                	syscall
+  40101b:	b8 00 00 00 00       	mov    $0x0,%eax
+  401020:	bf 00 00 00 00       	mov    $0x0,%edi
+  401025:	48 be 74 20 40 00 00 	movabs $0x402074,%rsi
+  40102c:	00 00 00 
+  40102f:	ba 20 00 00 00       	mov    $0x20,%edx
+  401034:	0f 05                	syscall
+  401036:	48 83 f8 00          	cmp    $0x0,%rax
+  40103a:	0f 8c d4 00 00 00    	jl     401114 <_start.error>
+  401040:	49 89 c6             	mov    %rax,%r14
+  401043:	49 83 c6 06          	add    $0x6,%r14
+  401047:	48 8b 04 25 19 20 40 	mov    0x402019,%rax
+  40104e:	00 
+  40104f:	48 89 04 25 94 20 40 	mov    %rax,0x402094
+  401056:	00 
+  401057:	48 8b 04 25 74 20 40 	mov    0x402074,%rax
+  40105e:	00 
+  40105f:	48 89 04 25 9a 20 40 	mov    %rax,0x40209a
+  401066:	00 
+  401067:	b8 01 00 00 00       	mov    $0x1,%eax
+  40106c:	bf 01 00 00 00       	mov    $0x1,%edi
+  401071:	48 be 94 20 40 00 00 	movabs $0x402094,%rsi
+  401078:	00 00 00 
+  40107b:	4c 89 f2             	mov    %r14,%rdx
+  40107e:	0f 05                	syscall
+  401080:	b8 01 00 00 00       	mov    $0x1,%eax
+  401085:	bf 01 00 00 00       	mov    $0x1,%edi
+  40108a:	48 be 20 20 40 00 00 	movabs $0x402020,%rsi
+  401091:	00 00 00 
+  401094:	ba 16 00 00 00       	mov    $0x16,%edx
+  401099:	0f 05                	syscall
+  40109b:	b8 00 00 00 00       	mov    $0x0,%eax
+  4010a0:	bf 00 00 00 00       	mov    $0x0,%edi
+  4010a5:	48 be 74 20 40 00 00 	movabs $0x402074,%rsi
+  4010ac:	00 00 00 
+  4010af:	ba 20 00 00 00       	mov    $0x20,%edx
+  4010b4:	0f 05                	syscall
+  4010b6:	49 89 c7             	mov    %rax,%r15
+  4010b9:	49 ff cf             	dec    %r15
+
+00000000004010bc <_start.l1>:
+  4010bc:	4d 89 fe             	mov    %r15,%r14
+  4010bf:	49 83 c6 05          	add    $0x5,%r14
+  4010c3:	41 8a 86 94 20 40 00 	mov    0x402094(%r14),%al
+  4010ca:	04 05                	add    $0x5,%al
+  4010cc:	41 3a 87 73 20 40 00 	cmp    0x402073(%r15),%al
+  4010d3:	75 22                	jne    4010f7 <_start.wrong>
+  4010d5:	49 ff cf             	dec    %r15
+  4010d8:	75 e2                	jne    4010bc <_start.l1>
+  4010da:	b8 01 00 00 00       	mov    $0x1,%eax
+  4010df:	bf 01 00 00 00       	mov    $0x1,%edi
+  4010e4:	48 be 53 20 40 00 00 	movabs $0x402053,%rsi
+  4010eb:	00 00 00 
+  4010ee:	ba 18 00 00 00       	mov    $0x18,%edx
+  4010f3:	0f 05                	syscall
+  4010f5:	eb 25                	jmp    40111c <_start.exit>
+
+00000000004010f7 <_start.wrong>:
+  4010f7:	b8 01 00 00 00       	mov    $0x1,%eax
+  4010fc:	bf 01 00 00 00       	mov    $0x1,%edi
+  401101:	48 be 36 20 40 00 00 	movabs $0x402036,%rsi
+  401108:	00 00 00 
+  40110b:	ba 18 00 00 00       	mov    $0x18,%edx
+  401110:	0f 05                	syscall
+  401112:	eb 08                	jmp    40111c <_start.exit>
+
+0000000000401114 <_start.error>:
+  401114:	48 89 04 25 70 20 40 	mov    %rax,0x402070
+  40111b:	00 
+
+000000000040111c <_start.exit>:
+  40111c:	b8 3c 00 00 00       	mov    $0x3c,%eax
+  401121:	48 bf 70 20 40 00 00 	movabs $0x402070,%rdi
+  401128:	00 00 00 
+  40112b:	0f 05                	syscall
+
+Desmontagem da secção .data:
+
+0000000000402000 <msg>:
+  402000:	50                   	push   %rax
+  402001:	6c                   	insb   (%dx),%es:(%rdi)
+  402002:	65 61                	gs (bad)
+  402004:	73 65                	jae    40206b <success+0x18>
+  402006:	20 65 6e             	and    %ah,0x6e(%rbp)
+  402009:	74 65                	je     402070 <ret_code>
+  40200b:	72 20                	jb     40202d <prompt+0xd>
+  40200d:	79 6f                	jns    40207e <buf+0xa>
+  40200f:	75 72                	jne    402083 <buf+0xf>
+  402011:	20 6e 61             	and    %ch,0x61(%rsi)
+  402014:	6d                   	insl   (%dx),%es:(%rdi)
+  402015:	65 3a 20             	cmp    %gs:(%rax),%ah
+	...
+
+0000000000402019 <hello>:
+  402019:	48                   	rex.W
+  40201a:	65 6c                	gs insb (%dx),%es:(%rdi)
+  40201c:	6c                   	insb   (%dx),%es:(%rdi)
+  40201d:	6f                   	outsl  %ds:(%rsi),(%dx)
+  40201e:	20 00                	and    %al,(%rax)
+
+0000000000402020 <prompt>:
+  402020:	45 6e                	rex.RB outsb %ds:(%rsi),(%dx)
+  402022:	74 65                	je     402089 <buf+0x15>
+  402024:	72 20                	jb     402046 <wrong+0x10>
+  402026:	79 6f                	jns    402097 <welcome+0x3>
+  402028:	75 72                	jne    40209c <welcome+0x8>
+  40202a:	20 50 61             	and    %dl,0x61(%rax)
+  40202d:	73 73                	jae    4020a2 <welcome+0xe>
+  40202f:	77 6f                	ja     4020a0 <welcome+0xc>
+  402031:	72 64                	jb     402097 <welcome+0x3>
+  402033:	3a 20                	cmp    (%rax),%ah
+	...
+
+0000000000402036 <wrong>:
+  402036:	1b 5b 33             	sbb    0x33(%rbx),%ebx
+  402039:	31 6d 57             	xor    %ebp,0x57(%rbp)
+  40203c:	72 6f                	jb     4020ad <welcome+0x19>
+  40203e:	6e                   	outsb  %ds:(%rsi),(%dx)
+  40203f:	67 20 43 72          	and    %al,0x72(%ebx)
+  402043:	65 64 65 6e          	gs fs outsb %gs:(%rsi),(%dx)
+  402047:	74 69                	je     4020b2 <welcome+0x1e>
+  402049:	61                   	(bad)
+  40204a:	6c                   	insb   (%dx),%es:(%rdi)
+  40204b:	73 2c                	jae    402079 <buf+0x5>
+  40204d:	20 47 54             	and    %al,0x54(%rdi)
+  402050:	46                   	rex.RX
+  402051:	4f 00              	rex.WRXB add %r11b,(%r11)
+
+0000000000402053 <success>:
+  402053:	1b 5b 33             	sbb    0x33(%rbx),%ebx
+  402056:	32 6d 47             	xor    0x47(%rbp),%ch
+  402059:	72 65                	jb     4020c0 <_end>
+  40205b:	61                   	(bad)
+  40205c:	74 20                	je     40207e <buf+0xa>
+  40205e:	48 34 78             	rex.W xor $0x78,%al
+  402061:	30 72 20             	xor    %dh,0x20(%rdx)
+  402064:	53                   	push   %rbx
+  402065:	6b 69 6c 6c          	imul   $0x6c,0x6c(%rcx),%ebp
+  402069:	7a 21                	jp     40208c <buf+0x18>
+  40206b:	21 21                	and    %esp,(%rcx)
+  40206d:	21 21                	and    %esp,(%rcx)
+	...
+
+0000000000402070 <ret_code>:
+	...
