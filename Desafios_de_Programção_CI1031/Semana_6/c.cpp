@@ -26,16 +26,16 @@ void solution() {
 	cin >> q;
 
 	vector<pair<int, int>> eventos(q);
-	int id = 1;
+	int count = 1;
 
 	vivo[1] = true;
 
 	for (int i=0 ; i<q ; i++) {
 		cin >> eventos[i].first >> eventos[i].second;
 		if (eventos[i].first == 1) {
-			id++;
-			filhos[eventos[i].second].pb(id);
-			vivo[id] = true;
+			count++;
+			filhos[eventos[i].second].pb(count);
+			vivo[count] = true;
 		}
 	}
 
