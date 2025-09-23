@@ -1,0 +1,10 @@
+Gadgets information
+============================================================
+0x000000000040125d : pop rbp ; ret
+0x000000000040159f : pop rdi ; ret
+0x000000000040159b : pop rdx ; ret
+0x000000000040159d : pop rsi ; ret
+0x000000000040101a : ret
+0x0000000000401296 : ret 0x8d48
+
+Unique gadgets found: 6
