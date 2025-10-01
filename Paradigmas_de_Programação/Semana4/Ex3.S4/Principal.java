@@ -1,12 +1,5 @@
 public class Principal {
     public static void main(String[] args) {
-        IngressoNormal ingre1 = new IngressoNormal(50);
-        IngressoVip ingre2 = new IngressoVip(100, 20);
-        IngressoVipCamarote ingre3 = new IngressoVipCamarote(1000, 200, 80);
-
-        ingre1.exibirDados();
-        ingre2.exibirDados();
-        ingre3.exibirDados();
 
         IngressoNormal[] normais = new IngressoNormal[25];
         IngressoVip[] vips = new IngressoVip[25];
