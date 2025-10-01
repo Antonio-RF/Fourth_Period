@@ -5,8 +5,9 @@ public class IngressoNormal extends Ingresso {
         super(valorIngresso);
     }
 
-    public void imprimeIngressoNormal() {
-        System.out.printf("O preço do ingresso normal é %d", getValorIngresso());
+    @Override
+    public void exibirDados() {
+        System.out.printf("O preço do ingresso é: %d\n", getValorIngresso());
     }
 
 }

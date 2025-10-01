@@ -18,7 +18,7 @@ public class Ingresso {
     }
 
     public void exibirDados() {
-        System.out.printf("O valor do ingresso é: %d", getValorIngresso());
+        System.out.printf("O valor do ingresso é: %d\n", getValorIngresso());
     }
 
 }

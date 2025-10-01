@@ -20,9 +20,15 @@ public class IngressoVipCamarote extends IngressoVip {
 
     //Método adicionaPrecoVip:
     public int adicionarValorCamarote() {
-        this.valorIngresso += this.valorAdicionalCamarote;
-        return this.valorIngresso;
+        return this.valorIngresso + this.valorAdicionalCamarote + this.valorAdicionalVip;
     }
+
+    //Sobreescrevendo o método imprimir:
+    @Override
+    public void exibirDados() {
+        System.out.printf("Valor do ingresso: %d\n", adicionarValorCamarote());
+    }
+
 
 
 }

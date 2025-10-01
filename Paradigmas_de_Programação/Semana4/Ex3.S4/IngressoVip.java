@@ -19,8 +19,13 @@ public class IngressoVip extends Ingresso {
     } 
 
     public int adicionarValorVip() {
-        this.valorIngresso += this.valorAdicionalVip;
-        return this.valorIngresso;
+        return this.valorIngresso + this.valorAdicionalVip;
+    }
+
+    //Método para sobreescrever o valor do método exibirDados:
+    @Override
+    public void exibirDados() {
+        System.out.printf("Valor do ingresso: %d\n", adicionarValorVip());
     }
 
 }
