@@ -24,6 +24,12 @@ public class Lampada {
             this.estado = true;
     }
 
+    public String toString() {
+        if (isEstado())
+            return String.format("Estado: ligada\n");
+        return String.format("Estado: Desligada\n");
+    }
+
 
 
 }

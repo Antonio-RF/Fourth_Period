@@ -1,21 +1,23 @@
 public abstract class CartaoWeb {
     protected String destinatario;
 
-    //Construtor da super classe:
-    public CartaoWeb(String destinatario) {
-        this.setDestinatario(destinatario);
-    }
-
-    //Métodos get e set:
+    //Métodos GET:
     public String getDestinatario() {
         return this.destinatario;
     }
+
+    //Métodos SET:
     public void setDestinatario(String destinatario) {
         if (destinatario != null)
             this.destinatario = destinatario;
     }
 
-    //Método abstrato que você vai usar nas classes filhas:
-    public abstract String retornarMensagem(String remetente);
+    //Construtor:
+    public CartaoWeb(String destinatario) {
+        this.setDestinatario(destinatario);
+    }
+
+    public abstract void retornarMensagem(String remetente); 
+
 
 }
