@@ -51,7 +51,6 @@ const int MAXN = 2e5 + 5;
 vector<ll> t(4 * MAXN), lazy(4 * MAXN), sety(4 * MAXN, -1);
 
 void build(const vector<int> &src, int ti = 1, int tl = 1, int tr = -1) {
-    if (tr == -1) tr = src.size() - 1;
     if (tl == tr) {
         if (tl < (int)src.size()) t[ti] = src[tl];
         return;
@@ -78,7 +77,6 @@ void push(int ti, int tl, int tm, int tr) {
 }
 
 void set_inclusive(int l, int r, int d, int ti = 1, int tl = 1, int tr = -1) {
-    if (tr == -1) tr = MAXN - 1;
     if (l > r || tr < l || r < tl) return;
     if (l <= tl && tr <= r) {
         t[ti] = ll(d) * FACTOR(tr - tl + 1);
@@ -93,7 +91,6 @@ void set_inclusive(int l, int r, int d, int ti = 1, int tl = 1, int tr = -1) {
 }
 
 void add_inclusive(int l, int r, int d, int ti = 1, int tl = 1, int tr = -1) {
-    if (tr == -1) tr = MAXN - 1;
     if (l > r || tr < l || r < tl) return;
     if (l <= tl && tr <= r) {
         t[ti] += ll(d) * FACTOR(tr - tl + 1); lazy[ti] += d; return;
@@ -106,7 +103,6 @@ void add_inclusive(int l, int r, int d, int ti = 1, int tl = 1, int tr = -1) {
 }
 
 ll op_inclusive(int l, int r, int ti = 1, int tl = 1, int tr = -1) {
-    if (tr == -1) tr = MAXN - 1;
     if (l > r || tr < l || r < tl) return NEUTRAL;
     if (l <= tl && tr <= r) return t[ti];
     int tm = (tl + tr) / 2;
@@ -114,6 +110,8 @@ ll op_inclusive(int l, int r, int ti = 1, int tl = 1, int tr = -1) {
     return OP(op_inclusive(l, r, ti * 2, tl, tm),
               op_inclusive(l, r, ti * 2 + 1, tm + 1, tr));
 }
+                                                                                                                                                            118,5         70%
+
 
 void solution() {
     ll n, q;
