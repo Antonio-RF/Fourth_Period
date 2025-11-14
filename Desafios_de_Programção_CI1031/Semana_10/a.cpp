@@ -111,7 +111,7 @@ void solution(){
 		cout << 0 << endl;
 		return;
     }
-	
+
 	unordered_map<int,int> indeg, outdeg;
 	for (int u : comps) {
 		for (int v : cg[u]) {
