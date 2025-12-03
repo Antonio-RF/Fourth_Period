@@ -1,0 +1,10 @@
+┌──(toninhorf㉿Rubiks)-[~/Documentos/Fourth_Period/Software_Básico/estudos-p2]
+└─$ ld -shared -o ABCSharedLib.so a.o b.o c.o
+ld: b.o: aviso: relocalização contra "globalB" em secção só de leitura ".text"
+ld: a.o: relocalização R_X86_64_PC32 contra símbolo "globalA" não pode ser usada ao fazer um objecto partilhado; recompile com -fPIC
+ld: vinculação final falhou: mau valor
+
+
+NÃO DEU CERTO pois eu linkei os arquivos a.c, b.c e c.c sem a opção FPIC, ou seja, os endereços já estão definidos, o que não pode acontecer. Os endereços devem ser feitos em momento de EXECUÇÃO SOMENTE:
+
+
